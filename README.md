@@ -21,4 +21,6 @@ Proyecto presentado como parte del BootCamp de `SoyHenry`
 
 > __Autor:__
 
-Hola! aprecio que estés interesado/a en mi proyecto y en mi. Soy un desarrollador FullStack iniciando mi camino por la industria IT. En el punto anterior detalle todas las tecnologías que se manejar. Espero que hayas podido apreciar mis códigos realizados en este proyeto. Te invito a que me contactes para saber más. :)
+Hola! aprecio que estés interesado/a en mi proyecto y en mi. Soy un desarrollador FullStack iniciando mi camino por la industria IT. En el punto anterior detalle todas las tecnologías que se manejar. Espero que hayas podido apreciar mis códigos realizados en este proyeto. Te invito a que me contactes por LinkedIn para saber más. :)
+
+Link al perfil: [Mauro David](https://www.linkedin.com/in/mauro-david-89432b193/)
