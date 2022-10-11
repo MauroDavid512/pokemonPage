@@ -1,0 +1,30 @@
+.home{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    font-family: Impact;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px black;
+}
+.blocks{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+.filter{
+    background-color: rgba(255, 255, 255, 0.402);
+    justify-content: start;
+    margin: 10px;
+    width: 12rem;
+    height: 25rem;
+    border-radius: 5%;
+    font-family: Impact;
+
+}
+
+.cardContainer{
+
+    width: 40rem;
+    display: flex;
+    flex-direction: row;
+}

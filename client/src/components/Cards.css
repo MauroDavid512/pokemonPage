@@ -1,0 +1,11 @@
+.order{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 40 rem;
+    
+}
+
+.renderizador{
+    color: rgba(240, 248, 255, 0);
+}

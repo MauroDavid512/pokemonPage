@@ -1,0 +1,11 @@
+.contenedor{
+    background-color: rgba(255, 255, 255, 0.233);
+    max-width: 30rem;
+    border-radius: 5%;
+    padding:3%;
+    font-family: Impact;
+}
+.titulo{
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px black;
+}

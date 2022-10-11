@@ -1,0 +1,17 @@
+.container2{
+    background-color: rgba(255, 255, 255, 0.255);
+    margin: 10px;
+    width: 15rem;
+    padding: 0.01% 0%  1% 0%;
+    border-radius: 10%;
+    font-family: Impact;
+    justify-content: center;
+    -webkit-text-fill-color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px black;
+    
+}
+
+img{
+    max-width: 96px;
+    max-height: 96px;
+}
