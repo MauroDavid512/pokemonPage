@@ -1,6 +1,10 @@
 # Proyecto Pagina muestra de pokemon
 
-La página muestra todos los pokemon extraidos desde la api `pokeapi`. Los renderiza en cartas y tiene la propiedad de ordenarlos y filtrarlos por sus puntos de ataque, nombre y tipo. Además de que te da la oportunidad de crear un pokemon propio con un formulario validado por Javascript y sumarlo a la base de datos.
+Bienvenido/a a mi repositorio de pokemon. En este proyecto te encontrarás con mi amado código que con tanta dedicación realicé.
+
+Te comento:
+
+La página muestra todos los pokemon extraidos desde la api `pokeapi`. Los renderiza en cartas y tiene la propiedad de ordenarlos y filtrarlos por sus puntos de ataque, nombre y tipo. Además de que te da la oportunidad de crear un pokemon propio con un formulario validado por Javascript y sumarlo a la base de datos. Tambien cuenta con una barra de busqueda sensible a mayúsculas.
 
 Para este proyecto se utilizaron las tecnologías:
 
