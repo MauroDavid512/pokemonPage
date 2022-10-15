@@ -1,6 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 
 export const GET_ALL_POKES = "GET_ALL_POKES";
 export const GET_POKE_DETAILS = "GET_POKE_DETAILS";
