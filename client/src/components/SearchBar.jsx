@@ -1,5 +1,5 @@
 import "./SearchBar.css"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as actions from '../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
