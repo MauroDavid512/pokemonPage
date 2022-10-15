@@ -19,7 +19,6 @@ const Paginado = ({ pokesPerPage, allPokes, paginado }) => {
     for (let i = 1; i <= Math.ceil(allPokes / pokesPerPage); i++) {
         pages.push(i)
     }
-    console.log(pages.length, actualPage)
 
     return (
         <div className="paginContainer">
