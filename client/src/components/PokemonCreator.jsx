@@ -35,8 +35,7 @@ const PokemonCreator = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let pokemonExist = allPokemons.find(e => e.name == (creacion.name.charAt(0).toUpperCase() + creacion.name.slice(1).toLowerCase()))
-        console.log(pokemonExist)
+        let pokemonExist = allPokemons.find(e => e.name === (creacion.name.charAt(0).toUpperCase() + creacion.name.slice(1).toLowerCase()))
         if (pokemonExist) {
             alert("Ya hay un pokemon con ese nombre")
         } else if (!creacion.name) {
@@ -46,9 +45,10 @@ const PokemonCreator = () => {
         if (Object.values(erroresForm).length > 0) {
             alert('Faltan datos o los has ingresado de forma erronea :( ')
         } else {
-            console.log(creacion)
             axios.post('http://localhost:3001/pokemonCreator', creacion);
             alert("Creaste un pokemon!");
+            setType1('normal')
+            setType2("")
             setCreacion({
                 name: "",
                 img: "",
@@ -62,14 +62,13 @@ const PokemonCreator = () => {
             });
         }
     }
-    console.log('Desde hSubmit ' + creacion.types)
 }
 
 
 const handleChange = (e) => {
 
     e.preventDefault()
-    if (e.target.name == "name") {
+    if (e.target.name === "name") {
         setCreacion({
             ...creacion,
             [e.target.name]: e.target.value
@@ -86,12 +85,12 @@ const handleChange = (e) => {
 
 const handleTypes = (e) => {
     e.preventDefault()
-    if (e.target.name == 'type1') {
+    if (e.target.name === 'type1') {
         setType1(e.target.value)
-    } else if (e.target.name == 'type2') {
+    } else if (e.target.name === 'type2') {
         setType2(e.target.value)
     }
-    if (type2 == "undefined") {
+    if (type2 === "undefined") {
         let arrAux = []
         arrAux.push(type1)
         setCreacion({
@@ -106,9 +105,7 @@ const handleTypes = (e) => {
             ...creacion,
             types: [...arrSet]
         })
-        console.log(creacion.types)
     }
-    console.log('Desde hTypes ' + creacion.types)
 }
 
 const handleErrors = (e) => {
