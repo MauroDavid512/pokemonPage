@@ -11,21 +11,23 @@ const Filter = () => {
        dispatch(actions.getAllTypes());
     }, []);
 
-    const [typeValue, setTypeValue] = useState('all')
-    const [originValue, setOriginValue] = useState('All')
+
+    let selectT = useSelector(state => state.selectT)
+    let selectO = useSelector(state => state.selectO)
+
 
     const [bool,setBool] = useState(true)
 
     const handleGetAll = (e) => {
         dispatch(actions.getAllPokes())
-        setOriginValue('All')
-        setTypeValue('all')
+        dispatch(actions.setSelectT('all'))
+        dispatch(actions.setSelectO('all'))
     }
 
     const handleTypeFilter = (e) => {
         dispatch(actions.filterType(e.target.value))
-        setTypeValue(e.target.value)
-        setOriginValue('All')
+        dispatch(actions.setSelectT(e.target.value))
+        dispatch(actions.setSelectO('all'))
     }
 
     const handleAttackSort = (e) => {
@@ -42,17 +44,16 @@ const Filter = () => {
 
     const handleOriginFilter = (e) => {
         if(e.target.value==='Api'){
-            setOriginValue('Api')
-            setTypeValue('all')
             dispatch(actions.filterOriginal())
+            dispatch(actions.setSelectO('Api'))
+            dispatch(actions.setSelectT('all'))
         }else if(e.target.value==='Db'){
-            setOriginValue('Db')
-            setTypeValue('all')
             dispatch(actions.filterCreated())
+            dispatch(actions.setSelectO('Db'))
+            dispatch(actions.setSelectT('all'))
         }else{
-            setOriginValue('All')
-            setTypeValue('all')
             dispatch(actions.getAllPokes())
+            dispatch(actions.setSelectT('all'))
         }
     }
 
@@ -60,10 +61,10 @@ const Filter = () => {
     let types = useSelector((state) => state.types)
     return (
         <div className="filterContainer">
-            <button className="create" onClick={handleGetAll}>Cargar pokemons nuevamente</button>
+            <button className="create" onClick={e => handleGetAll(e)}>Cargar pokemons nuevamente</button>
             <SearchBar/>
             <p>Filtrar por tipo: </p>
-                <select name="type" value={typeValue} onChange={e => handleTypeFilter(e)}>
+                <select name="type" value={selectT} onChange={e => handleTypeFilter(e)}>
                     <option value="all">Todos</option>
                     {types.map(e=> <option value={e.name}>{e.name}</option>)}
                 </select>
@@ -75,8 +76,8 @@ const Filter = () => {
                 <button name="attackUp" value="upA" onClick={e => handleAttackSort(e)}>/\</button>
                 <button name="attackDown" value="downA" onClick={e => handleAttackSort(e)}>\/</button> <br />
                 Ver: <br />
-                <select name="defaults" value={originValue} onChange={e => handleOriginFilter(e)} onKeyUp={e => handleOriginFilter(e)}>
-                    <option value="All">Todos</option>
+                <select name="defaults" value={selectO} onChange={e => handleOriginFilter(e)} onKeyUp={e => handleOriginFilter(e)}>
+                    <option value="all">Todos</option>
                     <option value="Api">Originales</option>
                     <option value="Db">Creados</option>|
                 </select><hr />

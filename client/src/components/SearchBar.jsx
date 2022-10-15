@@ -19,6 +19,8 @@ export default function SearchBar() {
     } else {
       e.preventDefault();
       dispatch(actions.onSearch(e.target.value))
+      dispatch(actions.setSelectO('all'))
+      dispatch(actions.setSelectT('all'))
       setPoke("")
     }
   }

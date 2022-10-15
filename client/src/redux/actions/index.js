@@ -13,13 +13,28 @@ export const NAME_SORT = 'NAME_SORT';
 export const TYPE_FILTER = "TYPE_FILTER";
 export const SEARCH_FILTER = "SEARCHFILTER"
 export const PAGINA = "PAGINA";
-export const GET_GRASS = "GET_GRASS"
+export const GET_GRASS = "GET_GRASS";
+export const SET_TYPE = 'SET_TYPE';
+export const SET_ORIGIN = "SET_ORIGIN";
+export const SET_FILTERS = "SET_FILTERS";
 
 
 
 export const changePage = (page) => {
     return function (dispatch){
         dispatch({type: PAGINA, payload: page})
+    }
+}
+
+export const setSelectT = (payload) => {
+    return function (dispatch){
+        dispatch({type: SET_TYPE, payload: payload})
+    }
+}
+
+export const setSelectO = (payload) => {
+    return function (dispatch){
+        dispatch({type: SET_ORIGIN, payload: payload})
     }
 }
 

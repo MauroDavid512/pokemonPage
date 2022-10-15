@@ -8,7 +8,9 @@ import {
     ATTACK_SORT,
     NAME_SORT,
     SEARCH_FILTER,
-    PAGINA
+    PAGINA,
+    SET_ORIGIN,
+    SET_TYPE
 } from '../actions'
 
 const initialState = {
@@ -18,7 +20,9 @@ const initialState = {
     pokemonDetail: {},
     title: "",
     ordenamiento: "indefinido",
-    page: 1
+    page: 1,
+    selectT: "all",
+    selectO: 'all'
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -106,6 +110,12 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             pokemons: orden2,
             ordenamiento: palabra2
+        }
+        case SET_ORIGIN: return {
+            ...state, selectO: action.payload
+        }
+        case SET_TYPE: return {
+            ...state, selectT: action.payload
         }
         case GET_ORIGINALS_POKES: return {
             ...state, pokemons: action.payload, title: 'TODOS LOS POKEMONS ORIGINALES!', page: 1
