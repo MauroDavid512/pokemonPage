@@ -11,14 +11,21 @@ const Filter = () => {
        dispatch(actions.getAllTypes());
     }, []);
 
+    const [typeValue, setTypeValue] = useState('all')
+    const [originValue, setOriginValue] = useState('All')
+
     const [bool,setBool] = useState(true)
 
     const handleGetAll = (e) => {
         dispatch(actions.getAllPokes())
+        setOriginValue('All')
+        setTypeValue('all')
     }
 
     const handleTypeFilter = (e) => {
         dispatch(actions.filterType(e.target.value))
+        setTypeValue(e.target.value)
+        setOriginValue('All')
     }
 
     const handleAttackSort = (e) => {
@@ -35,10 +42,16 @@ const Filter = () => {
 
     const handleOriginFilter = (e) => {
         if(e.target.value==='Api'){
+            setOriginValue('Api')
+            setTypeValue('all')
             dispatch(actions.filterOriginal())
         }else if(e.target.value==='Db'){
+            setOriginValue('Db')
+            setTypeValue('all')
             dispatch(actions.filterCreated())
         }else{
+            setOriginValue('All')
+            setTypeValue('all')
             dispatch(actions.getAllPokes())
         }
     }
@@ -50,7 +63,7 @@ const Filter = () => {
             <button className="create" onClick={handleGetAll}>Cargar pokemons nuevamente</button>
             <SearchBar/>
             <p>Filtrar por tipo: </p>
-                <select name="type" onChange={e => handleTypeFilter(e)}>
+                <select name="type" value={typeValue} onChange={e => handleTypeFilter(e)}>
                     <option value="all">Todos</option>
                     {types.map(e=> <option value={e.name}>{e.name}</option>)}
                 </select>
@@ -62,7 +75,7 @@ const Filter = () => {
                 <button name="attackUp" value="upA" onClick={e => handleAttackSort(e)}>/\</button>
                 <button name="attackDown" value="downA" onClick={e => handleAttackSort(e)}>\/</button> <br />
                 Ver: <br />
-                <select name="defaults" onChange={e => handleOriginFilter(e)}>
+                <select name="defaults" value={originValue} onChange={e => handleOriginFilter(e)} onKeyUp={e => handleOriginFilter(e)}>
                     <option value="All">Todos</option>
                     <option value="Api">Originales</option>
                     <option value="Db">Creados</option>|
