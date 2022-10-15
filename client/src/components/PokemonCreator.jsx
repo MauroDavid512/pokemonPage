@@ -32,11 +32,10 @@ const PokemonCreator = () => {
     const [erroresForm, setErroresForm] = React.useState({})
     const [type1, setType1] = React.useState("normal")
     const [type2, setType2] = React.useState("")
-    const [imgValue, setImgValue] = React.useState("")
     const [loading, setLoading] = React.useState(1);
     const [errorimg, setErrorimg] = React.useState("");
     const [img, setimg] = React.useState("")
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -47,11 +46,11 @@ const PokemonCreator = () => {
             alert('¡Colocale un nombre a tu pokemon! :) ')
         } else {
             setErroresForm(validacion(creacion));
-            if (Object.values(erroresForm).length > 0) {
+            if (Object.values(erroresForm).length > 0 || errorimg) {
                 alert('Faltan datos o los has ingresado de forma erronea :( ')
             } else {
                 axios.post('http://localhost:3001/pokemonCreator', creacion);
-                console.log('Creacion '+ img)
+                console.log('Creacion ' + img)
                 alert("Creaste un pokemon!");
                 setType1('normal')
                 setType2("")
@@ -240,7 +239,6 @@ const PokemonCreator = () => {
                 <input
                     id="inputFile"
                     type="file"
-                    value={imgValue}
                     name="image"
                     onChange={(e) => handleimg(e)}
                 />
@@ -261,9 +259,10 @@ const PokemonCreator = () => {
                     false
                 )}
 
+                {errorimg? <div><small>{errorimg}</small></div> : false}
 
-                    {/*---------------------*/}
-            <hr />
+                {/*---------------------*/}
+                <hr />
                 <h3 className="titulo">Estadisticas:</h3>
                 {erroresForm.suma ? <div><small>{erroresForm.suma}</small><br /></div> : false}
                 <label>Vida: </label><br />
