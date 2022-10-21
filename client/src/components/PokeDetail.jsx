@@ -17,8 +17,8 @@ const PokeDetail = (props) => {
         <div className="container2">
             <div>
             <h2>{pokemon.name}</h2>
-            <div className="imgDetail">
-            <img src={pokemon.img} alt={pokemon.name} />
+            <div>
+            <img className="image2" src={pokemon.img} alt={pokemon.name} />
             </div>
             </div>
             <div>
